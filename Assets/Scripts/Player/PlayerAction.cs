@@ -5,11 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerAction : MonoBehaviour, ISlimeAction
 {
-    Rigidbody rb;
     [SerializeField]
     float _movespeed = 5f;
 
+    [SerializeField]
+    SlimeState _state = SlimeState.Green_Horizontal;
+
     Vector3 _dir = Vector3.right;
+    Rigidbody rb;
 
     void Start()
     {
@@ -29,5 +32,16 @@ public class PlayerAction : MonoBehaviour, ISlimeAction
     public void Move()
     {
         rb.velocity = _dir.normalized * _movespeed;
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Placement"))
+        {
+            if (_state == SlimeState.)
+            {
+
+            }
+        }
     }
 }
